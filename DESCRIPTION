@@ -1,0 +1,26 @@
+Package: bordercovid
+Title: Compare COVID-19 Outcomes Across Border-Closure Strategies
+Version: 0.1.0
+Authors@R: 
+    person("Isha", "Mantri", email = "ishamantri20@gmail.com", role = c("aut", "cre"))
+Description: Provides a cleaned dataset of COVID-19 case and mortality
+    rates for countries that pursued strict border quarantine strategies
+    alongside comparison countries that did not. Includes a summary
+    function and a Shiny application for exploring how those outcomes
+    differed across countries and across time periods.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny,
+    bslib,
+    DT
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+LazyData: true
