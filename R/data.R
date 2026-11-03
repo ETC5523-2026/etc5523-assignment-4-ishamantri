@@ -1,0 +1,26 @@
+#' COVID-19 outcomes in strict-border and open-border countries
+#'
+#' Daily COVID-19 case and death rates for six countries between March 2020
+#' and December 2023. Three of them (Australia, New Zealand and China) kept
+#' strict border quarantine in place for most of the pandemic. The other
+#' three (the United Kingdom, the United States and Sweden) did not.
+#'
+#' @format A data frame with 8,406 rows and 7 columns:
+#' \describe{
+#'   \item{country}{Country name, as a factor.}
+#'   \item{date}{Date of the observation.}
+#'   \item{cases_per_million}{New confirmed cases per million people, as a seven-day rolling average.}
+#'   \item{deaths_per_million}{New confirmed deaths per million people, as a seven-day rolling average.}
+#'   \item{vaccinated_pct}{Share of the population fully vaccinated, in per cent. Carried forward between reporting dates, and zero before the rollout began.}
+#'   \item{population}{Country population.}
+#'   \item{border_strategy}{Whether the country used strict border control, as a factor with two levels.}
+#' }
+#'
+#' @source Our World in Data COVID-19 dataset, licensed CC BY 4.0:
+#'   \url{https://docs.owid.io/projects/etl/api/covid/}.
+#'   Prepared by \code{data-raw/covid_border.R}.
+#'
+#' @examples
+#' head(covid_border)
+#' table(covid_border$country)
+"covid_border"
