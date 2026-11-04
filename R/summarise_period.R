@@ -71,7 +71,11 @@ summarise_period <- function(data = covid_border,
     dplyr::summarise(
       days           = dplyr::n(),
       mean_cases     = round(mean(.data$cases_per_million, na.rm = TRUE), 1),
-      peak_cases     = round(max(.data$cases_per_million, na.rm = TRUE), 1),
+      peak_cases     = if (all(is.na(.data$cases_per_million))) {
+        NA_real_
+      } else {
+        round(max(.data$cases_per_million, na.rm = TRUE), 1)
+      },
       deaths_total   = round(sum(.data$deaths_per_million, na.rm = TRUE), 1),
       vaccinated_end = round(dplyr::last(.data$vaccinated_pct), 1),
       .groups = "drop"
