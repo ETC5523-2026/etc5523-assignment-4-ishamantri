@@ -113,7 +113,7 @@ ui <- page_sidebar(
     col_widths = c(12),
 
     card(
-      card_header("Over time"),
+      card_header("When the comparison is made changes the answer"),
       plotOutput("trend", height = "360px")
     ),
 
@@ -166,14 +166,18 @@ server <- function(input, output, session) {
         } else {
           "Daily deaths per million"
         },
-        colour = NULL
+        colour = NULL,
+
+        caption = "Our World in Data COVID-19 dataset (CC BY 4.0). Seven-day smoothed, per million population."
       ) +
+
       guides(colour = guide_legend(nrow = 1)) +
       theme_minimal(base_size = 13) +
-      theme(
-        legend.position = "bottom",
-        panel.grid.minor = element_blank()
-      )
+    theme(
+      legend.position = "bottom",
+      panel.grid.minor = element_blank(),
+      plot.caption = element_text(colour = "grey40", hjust = 0)
+    )
   })
 
   output$summary <- renderDT({
