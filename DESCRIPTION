@@ -19,7 +19,8 @@ Imports:
     shiny,
     bslib,
     DT,
-    rlang
+    rlang,
+    utils
 Suggests: 
     knitr,
     rmarkdown

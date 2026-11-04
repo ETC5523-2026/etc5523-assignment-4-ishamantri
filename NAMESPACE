@@ -2,4 +2,8 @@
 
 export(run_app)
 export(summarise_period)
+importFrom(DT,datatable)
+importFrom(bslib,page_sidebar)
+importFrom(ggplot2,ggplot)
 importFrom(rlang,.data)
+importFrom(utils,globalVariables)
