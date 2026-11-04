@@ -1,0 +1,93 @@
+---
+title: "Getting started with bordercovid"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with bordercovid}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Why this package exists
+
+Australia, New Zealand and China kept strict border quarantine in place for
+most of the pandemic. The United Kingdom, the United States and Sweden did
+not. Asking which approach did better sounds like a question with one answer.
+It is not, and that is what this package is built to show.
+
+## Installation
+
+```r
+# install.packages("remotes")
+remotes::install_github("ETC5523-2026/etc5523-assignment-4-ishamantri")
+```
+
+```{r setup}
+library(bordercovid)
+```
+
+## The data
+
+`covid_border` holds daily case and death rates per million for the six
+countries, from March 2020 to December 2023.
+
+```{r}
+head(covid_border)
+```
+
+Rates are per million and smoothed over seven days, so countries of very
+different sizes can sit on the same axis and weekend reporting gaps do not
+show up as spikes.
+
+## Summarising a period
+
+`summarise_period()` takes any two dates and returns one row per country,
+sorted by deaths over the window.
+
+```{r}
+summarise_period()
+```
+
+Over the whole period the two groups are hard to separate. Now narrow it to
+the first year.
+
+```{r}
+summarise_period(from = "2020-03-01", to = "2020-12-31")
+```
+
+The gap is enormous. New Zealand averaged around one case per million a day
+while the United Kingdom averaged over a hundred.
+
+Now take 2022 on its own.
+
+```{r}
+summarise_period(from = "2022-01-01", to = "2022-12-31")
+```
+
+The ranking inverts. Australia and New Zealand record the highest mean case
+rates of all six countries.
+
+## What that means
+
+Strict border control did not stop the wave, it moved it. Those countries
+delayed their first large outbreak until vaccination coverage was high, which
+is why their death totals stay low even in the window where their case rates
+are highest. Reading a single window and calling it the answer gets it wrong
+in one direction or the other.
+
+## Exploring it directly
+
+```r
+run_app()
+```
+
+The app has a date range, a choice of cases or deaths, and country
+checkboxes. Moving the date range is the thing worth doing: the plot, the
+table and the written reading underneath all update together, and the verdict
+at the top reverses between the 2020 and 2022 windows.
