@@ -98,13 +98,29 @@ ui <- page_sidebar(
           "up across the selected period, so it grows with a longer window."),
         p(class = "small",
           strong("Vaccinated"), " - share of the population fully",
-          "vaccinated on the last day of the window.")
+          "vaccinated on the last day of the window."),
+        p(class = "small",
+          strong("Days"), " - how many days of data fell inside the",
+          "selected period."),
+        p(class = "small",
+          strong("Mean cases"), " and ", strong("Peak cases"), " - the",
+          "average daily rate across the window, and the highest single",
+          "day in it.")
       ),
       accordion_panel(
         "How to use this",
         p(class = "small",
-          "Start with the full period, then shorten it. Try 2020 on its own,",
-          "then 2022 on its own. The ranking in the table changes completely.")
+          strong("Period to examine"), " - start with the full range, then",
+          "shorten it. Try 2020 on its own, then 2022 on its own. The",
+          "ranking in the table changes completely."),
+        p(class = "small",
+          strong("Measure"), " - switch between cases and deaths. Deaths",
+          "follow cases by a few weeks, so the two do not always point the",
+          "same way."),
+        p(class = "small",
+          strong("Countries"), " - untick any country to compare a smaller",
+          "set. At least one from each group is needed for the reading",
+          "underneath to work.")
       )
     )
   ),

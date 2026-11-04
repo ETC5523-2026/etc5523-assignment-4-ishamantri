@@ -1,5 +1,5 @@
 
-#install packages
+#packages
 
 library(dplyr)
 library(tidyr)
