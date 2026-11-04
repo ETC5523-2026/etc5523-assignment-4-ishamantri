@@ -18,10 +18,12 @@ Imports:
     ggplot2,
     shiny,
     bslib,
-    DT
+    DT,
+    rlang
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
 LazyData: true
 Config/roxygen2/version: 8.1.1
+
