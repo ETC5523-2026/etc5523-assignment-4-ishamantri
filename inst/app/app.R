@@ -113,7 +113,7 @@ ui <- page_sidebar(
     col_widths = c(12),
 
     card(
-      card_header("When the comparison is made changes the answer"),
+      card_header(textOutput("trend_title")),
       plotOutput("trend", height = "360px")
     ),
 
@@ -148,6 +148,15 @@ server <- function(input, output, session) {
       )
   })
 
+  output$trend_title <- renderText({
+    label <- if (input$metric == "cases_per_million") "cases" else "deaths"
+
+    paste0(
+      "Daily ", label, " per million, ",
+      format(input$dates[1], "%d %b %Y"), " to ",
+      format(input$dates[2], "%d %b %Y")
+    )
+  })
   output$trend <- renderPlot({
     d <- selected()
 

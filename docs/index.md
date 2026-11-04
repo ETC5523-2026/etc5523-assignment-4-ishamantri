@@ -66,3 +66,8 @@ to rebuild the dataset from source.
 <https://etc5523-2026.github.io/etc5523-assignment-4-ishamantri/>
 
 ## Use of AI
+
+I used Claude to help format and tidy my R code so it was consistent and
+easier to read, and to help debug errors in the package, including R CMD
+check notes and issues when deploying the pkgdown site to GitHub Pages.
+I checked and revised all generated code and text.
